@@ -1,4 +1,24 @@
 # Registreerimine ja autoriseerimine
+from MyModule import *
+
+users=["user1", "user2"]
+passw=["12345", "qwerty"]
+
+while True:
+    print("Если вы хотите пройти регистрацию нажмите - 1")
+    print("Если вы хотите авторизироваться нажмите - 2")
+    print("Если вы хотите закончить работу нажмите - 3")
+    выбор=int(input("Ваш выбор? "))
+
+    if выбор==1:  # Регистрация
+        Регистрация(users, passw)
+    elif выбор==2:  # Авторизация
+        Авторизация(users, passw)
+    elif выбор==3:  # Выход 
+        print("Вы выбрали закончить работу.")
+        break
+
+'''# Registreerimine ja autoriseerimine
 import MyModule
 
 users=["user1", "user2"]
@@ -45,3 +65,4 @@ while True:
     elif выбор==3:  # Выход
         print("Вы выбрали закончить работу.")
         break
+'''
