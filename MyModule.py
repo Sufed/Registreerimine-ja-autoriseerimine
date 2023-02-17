@@ -50,3 +50,43 @@ def Авторизация(users, passw):
         print("Авторизация прошла успешно.")
     else:
         print("Неверный логин и пароль.")
+
+        
+        
+        
+        
+def изменение_имени_пользователя(users, old_name, new_name):
+    """Изменяет имя пользователя"""
+    if old_name in users:
+        index = users.index(old_name)
+        users[index] = new_name
+        print("Имя пользователя успешно изменено.")
+    else:
+        print("Пользователь с таким именем не найден.")
+
+        
+        
+        
+        
+        
+def изменение_пароля(passw, user, old_pass, new_pass):
+    """Изменяет пароль пользователя"""
+    if user in users and old_pass in passw:
+        index = users.index(user)
+        passw[index] = new_pass
+        print("Пароль пользователя успешно изменен.")
+    else:
+        print("Неверное имя пользователя или пароль.")
+
+        
+        
+        
+def сброс_пароля(passw, user):
+    """Сбрасывает пароль пользователя"""
+    if user in users:
+        index = users.index(user)
+        new_pass = авто_пароль()
+        passw[index] = new_pass
+        print(f"Новый пароль для пользователя {user}: {new_pass}")
+    else:
+        print("Пользователь с таким именем не найден.")
