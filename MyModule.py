@@ -12,31 +12,31 @@ def проверка_пароля(пароль):
     """Проверка пароля"""
     if any(c.islower() for c in пароль) and any(c.isupper() for c in пароль) and any(c.isdigit() for c in пароль) and any(c in '.,:;!_*-+()/#¤%&' for c in пароль):
         #any - это функция которая присваивает статус True если оно имеется, а если нет то False
-        print("Пароль подходит")
+        print("Parool sobib")
     else:
-        print("Пароль не подходит")
+        print("Parool ei sobi")
 
 
 
 def Регистрация(users, passw):
     """Регистрация"""
-    print("Вы выбрали пройти регистрацию.")
-    print("Если вы хотите самостоятельно создать пароль нажмите - 1")
-    print("Если вы хотите чтобы пароль создался автоматически нажмите - 2")
-    выбор1=int(input("Ваш выбор? "))
+    print("Te olete otsustanud registreeruda.")
+    print("Kui soovite ise salasõna luua, vajutage - 1")
+    print("Kui soovite, et parool loodaks automaatselt, vajutage - 2")
+    выбор1=int(input("Teie valik? "))
     if выбор1==1:
         while True:
-            пароль=input("Введите пароль: ")
-            логин=input("Введите логин: ")
+            пароль=input("Sisestage oma parool: ")
+            логин=input("Sisestage oma kasutajanimi: ")
             if проверка_пароля(пароль):
                 passw.append(пароль)
                 users.append(логин)
                 break
     elif выбор1==2:
-        логин=input("Введите логин: ")
+        логин=input("Sisestage oma kasutajanimi: ")
         salasõna=авто_пароль()
         passw.append(salasõna)
-        print("Ваш пароль: ", salasõna)
+        print("oma parool: ", salasõna)
         users.append(логин)
 
 
@@ -44,13 +44,13 @@ def Регистрация(users, passw):
 
 def Авторизация(users, passw):
     """Авторизация"""
-    print("Вы выбрали авторизироваться.")
-    login=input("Введите логин: ")
-    password=input("Введите пароль: ")
+    print("Olete valinud sisselogimise.")
+    login=input("Sisestage oma kasutajanimi: ")
+    password=input("Sisestage oma parool: ")
     if login in users and password in passw:
-        print("Авторизация прошла успешно.")
+        print("Loa andmine oli edukas.")
     else:
-        print("Неверный логин и пароль.")
+        print("Vale sisselogimine ja salasõna.")
 
         
         
@@ -61,9 +61,9 @@ def изменение_имени_пользователя(users, старыйл
     if старыйлогин in users:
         index = users.index(старыйлогин)
         users[index] = новыйлогин
-        print("Имя пользователя успешно изменено.")
+        print("Kasutajanimi on edukalt muudetud.")
     else:
-        print("Пользователь с таким именем не найден.")
+        print("Selle nimega kasutajat ei leitud.")
 
         
         
@@ -75,9 +75,9 @@ def изменение_пароля(users, passw, логин, старыйпар
     if логин in users and старыйпароль in passw: #Дать выбор старого пароля
         index = users.index(логин)
         passw[index] = новыйпароль
-        print(f"Пароль пользователя успешно изменен. Старый пароль - {старыйпароль}")
+        print(f"Kasutaja parool on edukalt muudetud. Vana parool - {старыйпароль}")
     else:
-        print("Неверное имя пользователя или пароль.")
+        print("Vale kasutajanimi või salasõna.")
 
         
         
@@ -86,13 +86,13 @@ def сброс_пароля(passw, логин, users):
     """Сбрасывает пароль пользователя"""
     if логин in users: #Проверяется есть ли логин в списке пользователей
         index = users.index(логин) #Смотрит индекс логина.
-        выбор2 = int(input("Если вы хотите оставить старый пароль нажмите - 1. Если вы хотите новый нажмите 2: "))
+        выбор2 = int(input("Kui soovite säilitada vana salasõna, vajutage - 1. Kui soovite uut, vajutage 2: "))
         if выбор2 == 1:
-            print(f"Старый пароль для пользователя {логин}: {passw[index]}.")
+            print(f"Kasutaja vana parool {логин}: {passw[index]}.")
         elif выбор2 == 2:
             новыйпароль = авто_пароль()
             passw[index] = новыйпароль
-            print(f"Новый пароль для пользователя {логин}: {новыйпароль}.")
+            print(f"Kasutaja uus parool {логин}: {новыйпароль}.")
             print(passw)
     else:
-        print("Пользователь с таким именем не найден.")
+        print("Selle nimega kasutajat ei leitud.")
