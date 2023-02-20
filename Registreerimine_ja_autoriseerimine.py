@@ -9,8 +9,7 @@ while True:
     print("Если вы хотите авторизироваться нажмите - 2")
     print("Если вы хотите изменить имя пользователя нажмите - 3")
     print("Если вы хотите изменить пароль нажмите - 4")
-    print("Если вы забыли свой пароль нажмите - 5")
-    print("Если вы хотите закончить работу нажмите - 6")
+    print("Если вы хотите закончить работу нажмите - 5")
     выбор = int(input("Ваш выбор? "))
 
     if выбор == 1:
@@ -18,20 +17,26 @@ while True:
     elif выбор == 2:
         Авторизация(users, passw)
     elif выбор == 3:
-        old_username = input("Введите текущее имя пользователя: ")
-        new_username = input("Введите новое имя пользователя: ")
-        change_username(users, old_username, new_username)
+        старыйлогин = input("Введите текущее имя пользователя: ")
+        новыйлогин = input("Введите новое имя пользователя: ")
+        изменение_имени_пользователя(users, старыйлогин, новыйлогин)
     elif выбор == 4:
-        username = input("Введите имя пользователя: ")
-        old_password = input("Введите старый пароль: ")
-        new_password = input("Введите новый пароль: ")
-        change_password(users, passw, username, old_password, new_password)
+        логин = input("Введите имя пользователя: ")
+        старыйпароль = input("Введите старый пароль: ")
+        новыйпароль = input("Введите новый пароль: ")
+        изменение_пароля(users, passw, логин, старыйпароль, новыйпароль)
     elif выбор == 5:
-        username = input("Введите имя пользователя: ")
-        reset_password(users, passw, username)
-    elif выбор == 6:
         print("Вы выбрали закончить работу.")
         break
+
+
+
+
+
+
+
+
+
 
 '''# Registreerimine ja autoriseerimine
 import MyModule
