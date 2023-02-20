@@ -3,7 +3,7 @@ import random
 def авто_пароль():
     """Генерирует пароль длиной 12 символов"""
     символы='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,:;!_*-+()/#¤%&'
-    salasõna=''.join(random.choice(символы) for _ in range(12)) #Выбирает 12 рандомных символов.
+    salasõna=''.join(random.choice(символы) for _ in range(12)) #Выбирает 12 рандомных символов. Valib 12 juhuslikku märki.
     return salasõna
 
 
@@ -11,7 +11,8 @@ def авто_пароль():
 def проверка_пароля(пароль):
     """Проверка пароля"""
     if any(c.islower() for c in пароль) and any(c.isupper() for c in пароль) and any(c.isdigit() for c in пароль) and any(c in '.,:;!_*-+()/#¤%&' for c in пароль):
-        #any - это функция которая присваивает статус True если оно имеется, а если нет то False
+        #any - это функция которая присваивает статус True если оно имеется, а если нет то False, 
+        #any - on funktsioon, mis määrab staatuse True, kui see on olemas, ja False, kui seda ei ole.
         print("Parool sobib")
     else:
         print("Parool ei sobi")
